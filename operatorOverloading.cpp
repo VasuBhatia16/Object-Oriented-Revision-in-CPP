@@ -21,6 +21,24 @@ public:
         tempF.den = (this->den)*(f.den);
         return tempF;
     }
+    Fraction operator*(Fraction f){
+        Fraction tempF;
+        tempF.num = (this->num)*(f.num);
+        tempF.den = (this->den)*(f.den);
+        return tempF;
+    }
+    Fraction operator/(Fraction f){
+        Fraction tempF;
+        tempF.num = (this->num)*(f.den);
+        tempF.den = (this->den)*(f.num);
+        return tempF;
+    }
+    Fraction operator-(Fraction f){
+        Fraction tempF;
+        tempF.num = (this->num)*(f.den) - (f.num)*(this->den);
+        tempF.den = (this->den)*(f.den);
+        return tempF;
+    }
 };
 
 
@@ -29,6 +47,12 @@ int main()
 {
     Fraction f1(1,2),f2(1,3),f3;
     f3=f1+f2;
+    f3.print();
+    f3=f1*f2;
+    f3.print();
+    f3=f1-f2;
+    f3.print();
+    f3=f1/f2;
     f3.print();
     return 0;
 }
